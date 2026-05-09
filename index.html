@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ще бъдеш ли моята +1? ❤️</title>
+  <meta name="description" content="Една малка покана от сърце." />
+  <meta property="og:title" content="Ще бъдеш ли моята +1? ❤️" />
+  <meta property="og:description" content="Една малка покана от сърце." />
+  <meta property="og:image" content="assets/nie.jpeg" />
+  <style>
+    :root {
+      --bg1: #fff4f4;
+      --bg2: #f4ecff;
+      --card: rgba(255, 255, 255, 0.82);
+      --text: #2a1f2d;
+      --muted: #6f6174;
+      --accent: #d94f70;
+      --accent2: #7c5cff;
+      --shadow: 0 24px 70px rgba(82, 45, 85, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(217, 79, 112, .20), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(124, 92, 255, .18), transparent 30%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      overflow-x: hidden;
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 22px;
+      opacity: .25;
+      animation: float 9s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      from { transform: translateY(110vh) rotate(0deg); }
+      to { transform: translateY(-15vh) rotate(360deg); }
+    }
+
+    .card {
+      width: min(980px, 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+    }
+
+    .photo-wrap {
+      min-height: 620px;
+      background: #fff;
+      position: relative;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .badge {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      background: rgba(255, 255, 255, .86);
+      padding: 10px 14px;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .content {
+      padding: clamp(28px, 5vw, 58px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: .98;
+      margin: 0 0 20px;
+      letter-spacing: -0.055em;
+    }
+
+    p {
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0 0 28px;
+    }
+
+    .question {
+      color: var(--text);
+      font-weight: 650;
+      font-size:x-large;
+      line-height: 1.2;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      min-height: 56px;
+    }
+
+    button, a.button {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 15px 22px;
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+      white-space: nowrap;
+    }
+
+    .yes {
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 14px 28px rgba(217, 79, 112, .28);
+    }
+
+    .no {
+      color: var(--text);
+      background: rgba(255, 255, 255, .78);
+      border: 1px solid rgba(42, 31, 45, .09);
+      position: relative;
+    }
+
+    button:hover, a.button:hover { transform: translateY(-2px); }
+
+    .reply {
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .68);
+      color: var(--text);
+      display: none;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .reply.show { display: block; }
+
+    .tiny {
+      margin-top: 22px;
+      font-size: 13px;
+      color: rgba(111, 97, 116, .82);
+    }
+
+    @media (max-width: 800px) {
+      body { padding: 14px; }
+      .card { grid-template-columns: 1fr; border-radius: 26px; }
+      .photo-wrap { min-height: 360px; }
+      .content { text-align: center; align-items: center; }
+      .buttons { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <span class="heart" style="left:7%; animation-delay:0s;">❤️</span>
+  <span class="heart" style="left:22%; animation-delay:2s;">💕</span>
+  <span class="heart" style="left:72%; animation-delay:1s;">❤️</span>
+  <span class="heart" style="left:88%; animation-delay:4s;">💗</span>
+
+  <main class="card">
+    <section class="photo-wrap" aria-label="Наша снимка">
+      <img src="assets/nie.jpeg" alt="Наша снимка" />
+      <!-- <div class="badge">моят любим човек ✨</div> -->
+    </section>
+
+    <section class="content">
+      <div class="kicker">invite</div>
+      <h2>Mo da sme se skarali...</h2>
+      <p>
+        no te obicham i iskam da znaesh che nqma drug chovek s koito bih iskal da spodelq tozi den (ochevidno). Obicham te i mi puka ujasno mnogo za teb. Hence, oficialno iskam da te pokanq..
+      </p>
+      <div class="question">Shte budesh li moq dama na svatbata na Gosheto i Spasi?</div>
+
+      <div class="buttons">
+        <button class="yes" id="yesBtn">Да, ще бъда ❤️</button>
+        <button class="no" id="noBtn">Не 😅</button>
+      </div>
+
+      <div class="reply" id="reply">
+        ЪС БЕ! Obeshtavam da se staraq da sum po vnimatelen i da se borq za teb vseki den ❤️
+      </div>
+
+      <!-- <div class="tiny">P.S. Запази си най хубавата усмивка за дансинга.</div> -->
+    </section>
+  </main>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const reply = document.getElementById('reply');
+
+    yesBtn.addEventListener('click', () => {
+      reply.classList.add('show');
+      yesBtn.textContent = 'Обичам те ❤️';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
+    function dodgeNoButton() {
+      const x = Math.floor(Math.random() * 120) - 60;
+      const y = Math.floor(Math.random() * 90) - 45;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+      noBtn.textContent = ['Помисли пак 😇', 'Сигурна ли си? 🥺', 'Няма такъв отговор 😌'][Math.floor(Math.random() * 3)];
+    }
+
+    noBtn.addEventListener('mouseenter', dodgeNoButton);
+    noBtn.addEventListener('click', dodgeNoButton);
+  </script>
+</body>
+</html>
